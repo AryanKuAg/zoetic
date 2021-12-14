@@ -4,9 +4,14 @@ from PIL import ImageGrab
 import keyboard
 while True:
     try:
-        if keyboard.is_pressed('p'):
-            image = ImageGrab.grab()
-            image.save("screenshot.png")
+        if keyboard.is_pressed('`'):
+            currentMouseX1, currentMouseY1 = pyautogui.position()
+            currentMouseX2 = currentMouseX1 + 400
+            currentMouseY2 = currentMouseY1 + 200
+            # image.save("screenshot30.png")
+            im = ImageGrab.grab(
+                bbox=(currentMouseX1, currentMouseY1, currentMouseX2, currentMouseY2))
+            im.save('screenshot.png')
             break
         else:
             pass
